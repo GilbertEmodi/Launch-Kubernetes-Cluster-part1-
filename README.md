@@ -1,15 +1,12 @@
-<img src="https://cdn.prod.website-files.com/677c400686e724409a5a7409/6790ad949cf622dc8dcd9fe4_nextwork-logo-leather.svg" alt="NextWork" width="300" />
-
 # Launch a Kubernetes Cluster
 
-**Project Link:** [View Project](http://learn.nextwork.org/projects/aws-compute-eks1)
 
 **Author:** Gilbert Emodi  
 **Email:** zemodi99@gmail.com
 
 ---
 
-![Image](http://learn.nextwork.org/ecstatic_beige_calm_tarapirohe/uploads/aws-compute-eks1_e5f6g7h8)
+![Image](https://github.com/GilbertEmodi/Launch-Kubernetes-Cluster-part1-/blob/main/eks1-architecture-complete.png)
 
 ---
 
@@ -40,17 +37,17 @@ I used eksctl to create a Kubernetes cluster using the command line. The "eksctl
 I initially ran into 2 errors while using eksctl. The first one was because of not having installed eksctl yet.
 The second one was because the EC2 instance didn't have permission to our AWS account and services yet.
 
-![Image](http://learn.nextwork.org/ecstatic_beige_calm_tarapirohe/uploads/aws-compute-eks1_ff9bfc221)
+![Image](https://github.com/GilbertEmodi/Launch-Kubernetes-Cluster-part1-/blob/main/1-eksctl%20not%20found.JPG)
 
 ---
 
 ## eksctl and CloudFormation
 
-CloudFormation helped create my EKS cluster because "eksctl" uses CF under the hood when I run an "eksctl create" command. CF created VPC resources because creating the EKS cluster in my default VPC would cause compatibility and permission issues.
+CloudFormation helped create my EKS cluster because "eksctl" uses Cloud Formation under the hood when I run an "eksctl create" command. CloudFormation created VPC resources because creating the EKS cluster in my default VPC would cause compatibility and permission issues.
 
 There was also a 2nd CloudFormation stack for the node group. The difference between a cluster and node group is that the cluster is the entire Kubernetes set up (including the control plane), while the node group is a group of EC2 instances inside.
 
-![Image](http://learn.nextwork.org/ecstatic_beige_calm_tarapirohe/uploads/aws-compute-eks1_w3e4r5t6)
+![Image](https://github.com/GilbertEmodi/Launch-Kubernetes-Cluster-part1-/blob/main/2-Stacks%20Created.JPG)
 
 ---
 
@@ -60,11 +57,7 @@ I had to create an IAM access entry in order to see the nodes in the new node gr
 
 It took about 40 minutes to create my cluster. Since I'll create this cluster again in the next part of the project, I can speed up the process by using templates (ex. Terraform or CloudFormation) and installing dependencies ahead of time.
 
-![Image](http://learn.nextwork.org/ecstatic_beige_calm_tarapirohe/uploads/aws-compute-eks1_e5f6g7h8)
-
----
-
-## EXTRA: Deleting nodes
+![Image](https://github.com/GilbertEmodi/Launch-Kubernetes-Cluster-part1-/blob/main/3-Nodes.JPG)
 
 ---
 
